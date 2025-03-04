@@ -2,11 +2,14 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                @guest
-                    <ul>
-                        <li><a href="{{ route('login')}}">Login</a></li>
-                    </ul>
-                @endguest
+
+                <ul class="display-6">
+                    @guest
+                        <li><a href="{{ route('login') }}">Login</a></li>
+                    @else
+                        <li><a href="{{ route('only_admin') }}">Somente admins</a></li>    
+                    @endguest
+                </ul>
             </div>
         </div>
     </div>
