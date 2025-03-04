@@ -2,9 +2,11 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
+                @guest
+                    <ul>
+                        <li><a href="{{ route('login')}}">Login</a></li>
+                    </ul>
+                @endguest
             </div>
         </div>
     </div>
