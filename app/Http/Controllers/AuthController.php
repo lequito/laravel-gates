@@ -25,7 +25,31 @@ class AuthController extends Controller{
         if(Gate::allows('userIsAdmin')){
             echo 'Bem-vindo';
         }else{
-            echo 'Usuário não admin';
+            echo 'Não autorizado';
         }
+    }
+
+    public function onlyUsers(){
+        if(Gate::allows('userIsUser')){
+            echo 'Usuário sem privilégios';
+        }else{
+            echo 'Usuário administrador';
+        }
+
+        /*
+        if(Gate::denies('userIsAdmin')){
+            echo 'Usuário sem privilégios';
+        }else{
+            echo 'Usuário administrador';
+        }
+
+        if (Auth::user()->can('userIsUser')) {
+            # code...
+        }
+
+        if (Auth::user()->cannot('userIsAdmin')) {
+            # code...
+        }
+        */
     }
 }
